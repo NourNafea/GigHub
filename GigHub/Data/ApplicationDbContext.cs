@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using GigHub.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace GigHub.Data;
@@ -9,16 +10,8 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
-    
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     var configuration = new ConfigurationBuilder()
-    //         .SetBasePath(Directory.GetCurrentDirectory())
-    //         .AddJsonFile("appsettings.json")
-    //         .Build();
-    //
-    //     var connectionString = configuration.GetConnectionString("DefaultConnection");
-    //     optionsBuilder.UseSqlServer(connectionString);
-    // }
+
+    public DbSet<Gig> Gigs { get; set; }
+    public DbSet<Genre> Genres { get; set; }
 
 }
