@@ -31,8 +31,6 @@ public class GigsController : Controller
     [HttpPost]
     public IActionResult Create(GigFormViewModel viewModel)
     {
-        // var artistId = User.Identity.GetUserId();
-
         var gig = new Gig
         {
             ArtistId = HttpContext.User.Claims.FirstOrDefault().Value,
