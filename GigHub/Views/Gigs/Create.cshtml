@@ -1,8 +1,24 @@
-@model dynamic
+@model GigHub.ViewModels.GigFormViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Create</h2>
+<form>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Venue)
+        @Html.TextBoxFor(x=>x.Venue, new {@class ="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Date)
+        @Html.TextBoxFor(x=>x.Date, new {@class ="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Time)
+        @Html.TextBoxFor(x=>x.Time, new {@class ="form-control"})
+    </div>
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+</form>
