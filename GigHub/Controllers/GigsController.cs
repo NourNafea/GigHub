@@ -31,16 +31,23 @@ public class GigsController : Controller
     [HttpPost]
     public IActionResult Create(GigFormViewModel viewModel)
     {
+        if (!ModelState.IsValid)
+        {
+            viewModel.Genres = Db.Genres.ToList();
+            return View("Create", viewModel);
+        }
+        
         var gig = new Gig
         {
             ArtistId = HttpContext.User.Claims.FirstOrDefault().Value,
-            DateTime = viewModel.DateTime,
+            DateTime = viewModel.GetDateTime(),
             GenreId = viewModel.Genre,
             Venue = viewModel.Venue
         };
         Db.Gigs.Add(gig);
         Db.SaveChanges();
         return RedirectToAction("Index", "Home");
+
     }
 
 }
