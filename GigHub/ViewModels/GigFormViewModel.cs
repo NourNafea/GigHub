@@ -13,6 +13,7 @@ public class GigFormViewModel
     public string Date { get; set; }
     
     [Required]
+    [ValidTime]
     public string Time { get; set; }
     
     [Required]
